@@ -56,6 +56,15 @@ class API {
       throw err;
     }
   }
+  async getMessages() {
+    try {
+      const data = await this.axiosInstance.get("/messages?limit=250&offset=0");
+      return data.messages
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
 }
 
 // WARNING.. do not touch below this line if you want to have a good day =]
