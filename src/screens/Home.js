@@ -1,6 +1,7 @@
 import React from "react";
 import { LoginFormContainer, MenuContainer} from "../components";
-import {SignupFormContainer} from "../components/signup-form/index"
+
+import { Link} from "react-router-dom"
 
 export const HomeScreen = () => (
   <>
@@ -8,7 +9,8 @@ export const HomeScreen = () => (
     <h2>Your favorite microblogging platform</h2>
     
     <LoginFormContainer />
-    <SignupFormContainer/>
+    <p>Dont have an account? <Link to="/signup">Sign up Here</Link></p>
+
 
   </>
 );
