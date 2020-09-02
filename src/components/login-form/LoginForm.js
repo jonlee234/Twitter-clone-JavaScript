@@ -27,7 +27,11 @@ export const LoginForm = ({ login }) => {
     loading: state.auth.loading,
     error: state.auth.error,
   }));
+
+  //TEST CODE 
   const messages = useSelector(state => state.messages)
+  //TEST CODE CAN BE DELETED
+
 
   const dispatch = useDispatch();
 
