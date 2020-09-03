@@ -68,7 +68,7 @@ export const LoginForm = ({ login }) => {
       {error && <p style={{ color: "red" }}>{error.message}</p>}
       {/* Below is simply test code to test whether my functionality is working */}
       <button onClick={Test}>Test</button>
-  {msg.message[0].name === 'Error' ? <h3>{msg.message[0].name}</h3> : <p>{msg.message[0].message.text}</p>}
+     {/* {msg.message[0].name === 'Error' ? <h3>{msg.message[0].name}</h3> : <p>{msg.message[0].message.text}</p>} */}
       {/* Code above is to test code and can be deleted */}
     </React.Fragment>
   );
