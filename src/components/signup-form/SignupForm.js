@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { actions } from "../../redux/actions/signup";
-import { Loader } from "../loader";
 import "./SignupForm.css";
 
 export const SignupForm = ({ signup }) => {
-  const { loading, error } = useSelector((state) => ({
-    loading: state.loading,
+  const { error } = useSelector((state) => ({
+    
     error: state.error,
   }));
 
@@ -58,11 +57,11 @@ export const SignupForm = ({ signup }) => {
           required
           onChange={handleChange}
         />
-        <button type="submit" disabled={loading}>
+        <button type="submit">
           Sign Up
         </button>
       </form>
-      {loading && <Loader />}
+
       {error && <p style={{ color: "red" }}>{error.message}</p>}
     </React.Fragment>
   );
