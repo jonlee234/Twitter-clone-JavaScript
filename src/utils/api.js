@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 class API {
   axiosInstance = null;
 
@@ -58,7 +59,9 @@ class API {
   }
   async getUserlist() {
     try {
-      await this.axiosInstance.get("/users");
+      const data= await this.axiosInstance.get("/users?limit=10&offset=0");
+      return data.users
+      
     } catch (err) {
       helpMeInstructor(err);
       throw err;

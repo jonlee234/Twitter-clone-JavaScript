@@ -1,20 +1,16 @@
-import { CREATE_LIST,} from "../actions";
+import { CREATE_LIST } from "../actions/userlist";
 
 // INITIAL STATE
 const INITIAL_STATE = {
-  
-  users:[]
-  
+  users: [],
 };
 
-export const createList = (state = {INITIAL_STATE}, action)=> {
-    switch (action.type) {
-       case CREATE_LIST:
-           console.log(action.payload.data)
-           return { ...INITIAL_STATE, users: action.payload.data.users };
-         }
-    return state;
-  }
-   
-   
+export const listReducer = (state = INITIAL_STATE, action) => {
+  switch (action.type) {
+    case CREATE_LIST:
+      return { users: [...state.users, action.payload] };
 
+    default:
+      return state;
+  }
+};
