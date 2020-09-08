@@ -11,11 +11,11 @@ import camera from './images/cameraplace.jpg'
 
 
 
-const Test = (props) => {
+const Container = (props) => {
   return (
     
   <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src= {`https://kwitter-api.herokuapp.com${props.photo}`}alt src={camera} />
+  <Card.Img variant="top" src= {`https://kwitter-api.herokuapp.com${props.photo}`} />
   <Card.Body>
     <Card.Title>Display Name= {props.displayName}</Card.Title>
     <Card.Text>User Name = {props.username}</Card.Text>
@@ -35,11 +35,10 @@ export const ExploreForm = () => {
   const dispatch = useDispatch();
 
   
-  const test = event => {
-dispatch(getUserlist());}
   
-  console.log(users.users[1]);
-
+const buffer=()=>{dispatch(getUserlist());}
+  
+  
   
 
   return (
@@ -48,7 +47,7 @@ dispatch(getUserlist());}
       <div id = "cards">
       {users.users[1].map(item => (
         
-        <Test photo= {item.pictureLocation} displayName={item.displayName} key={uuidv4()} username={item.username} about={item.about}/>
+        <Container photo= {item.pictureLocation} displayName={item.displayName} key={uuidv4()} username={item.username} about={item.about}/>
       ))}</div>
     </React.Fragment>
    

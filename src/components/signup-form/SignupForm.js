@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { actions } from "../../redux/actions/signup";
+import { createUser } from "../../redux/actions/signup";
+import {Link} from "react-router-dom"
 import "./SignupForm.css";
 
 export const SignupForm = ({ signup }) => {
-  const { error } = useSelector((state) => ({
+  
+
+  const { isSucsessful } = useSelector((state) => ({
+    isSucsessful: state.signup.isSucsessful,
     
-    error: state.error,
   }));
 
   const dispatch = useDispatch();
@@ -15,11 +18,16 @@ export const SignupForm = ({ signup }) => {
     username: "",
     password: "",
     displayName: "",
+    
   });
 
   const handleSignup = (event) => {
     event.preventDefault();
-    dispatch(actions.createUser(state));
+    dispatch(createUser(state));
+    if (isSucsessful === true) {
+      console.log("working");
+    
+    }
   };
 
   const handleChange = (event) => {
@@ -48,7 +56,7 @@ export const SignupForm = ({ signup }) => {
           required
           onChange={handleChange}
         />
-         <label htmlFor="displayname">Display name</label>
+        <label htmlFor="displayname">Display name</label>
         <input
           type="text"
           name="displayName"
@@ -57,12 +65,10 @@ export const SignupForm = ({ signup }) => {
           required
           onChange={handleChange}
         />
-        <button type="submit">
-          Sign Up
-        </button>
+        <button type="submit">Sign Up</button>
       </form>
-
-      {error && <p style={{ color: "red" }}>{error.message}</p>}
+      { isSucsessful ? <p>Sign up sucesss!! <Link to="/">Return Home</Link></p>:"Please sign up!"}
+      
     </React.Fragment>
   );
 };
