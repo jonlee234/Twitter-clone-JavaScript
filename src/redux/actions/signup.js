@@ -8,10 +8,9 @@ export const SIGNUP_FAILURE = "SIGNUP_FAILURE"
 
 
 
-const createUser = (credentials) => async (dispatch, getState) => {
+export const createUser = (credentials) => async (dispatch, getState) => {
     try {
       dispatch({ type: SIGNUP });
-      console.log("userInformation" , credentials)
       const payload = await api.createUser(credentials);
       dispatch({ type: SIGNUP_SUCCESS, payload });
     } catch (err) {
@@ -21,9 +20,6 @@ const createUser = (credentials) => async (dispatch, getState) => {
       });
     }
   };
-// make a message signup success
 
-  export const actions = {
-    createUser,
-    
-  };
+
+  

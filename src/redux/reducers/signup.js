@@ -8,6 +8,7 @@ const INITIAL_STATE = {
   displayName: "",
   loading: false,
   error: "",
+  isSucsessful : false
 };
 
 export const signupReducer = (state = { ...INITIAL_STATE }, action) => {
@@ -16,6 +17,7 @@ export const signupReducer = (state = { ...INITIAL_STATE }, action) => {
       return {
         ...INITIAL_STATE,
         loading: true,
+        isSucsessful:false
       };
     case SIGNUP_SUCCESS:
       const { username,displayName,password} = action.payload;
@@ -25,6 +27,7 @@ export const signupReducer = (state = { ...INITIAL_STATE }, action) => {
         password,
         displayName,
         loading: false,
+        isSucsessful: true
       };
     case SIGNUP_FAILURE:
       return {
@@ -33,7 +36,8 @@ export const signupReducer = (state = { ...INITIAL_STATE }, action) => {
         loading: false,
       };
    
+   
     default:
-      return state;
+      return INITIAL_STATE;
   }
 };

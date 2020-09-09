@@ -5,7 +5,6 @@ export const SignupScreen = () =>  {
     return (
         <div>
             <SignupFormContainer/>
-            
         </div>
     )
 }

@@ -1,9 +1,7 @@
 import React from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
-import { HomeScreen, ProfileScreen, NotFoundScreen ,SignupScreen, FeedScreen} from "../../screens";
-
+import { HomeScreen, ProfileScreen, NotFoundScreen ,SignupScreen, FeedScreen, AboutScreen, ExploreScreen} from "../../screens";
 import { ConnectedRoute } from "../connected-route/ConnectedRoute";
-import { AboutScreen } from "../../screens/About";
 
 export const Navigation = () => (
   <BrowserRouter>
@@ -38,6 +36,11 @@ export const Navigation = () => (
         path="/signup"
         redirectIfAuthenticated
         component={SignupScreen}
+      />
+      <ConnectedRoute
+      exact
+        path="/explore"
+        component={ExploreScreen}
       />
       <ConnectedRoute path="*" component={NotFoundScreen} />
     </Switch>
