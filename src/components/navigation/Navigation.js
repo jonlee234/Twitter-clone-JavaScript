@@ -23,7 +23,7 @@ export const Navigation = () => (
       />
       <ConnectedRoute
         exact
-        isProtected
+        
         path="/profiles/:username"
         component={ProfileScreen}
       />
