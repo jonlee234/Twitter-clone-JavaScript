@@ -3,12 +3,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { actions } from "../../redux/actions/auth";
 import { Loader } from "../loader";
 import "./LoginForm.css";
+import {postImage} from "../../redux/actions/postImage"
 
 export const LoginForm = () => {
   const { loading, error } = useSelector((state) => ({
     loading: state.auth.loading,
     error: state.auth.error,
   }));
+  
 
   const dispatch = useDispatch();
 
