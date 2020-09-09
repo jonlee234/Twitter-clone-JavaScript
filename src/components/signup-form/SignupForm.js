@@ -1,27 +1,29 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { actions } from "../../redux/actions/auth";
+import { actions } from "../../redux/actions/signup";
 import { Loader } from "../loader";
-import "./LoginForm.css";
-import {postImage} from "../../redux/actions/postImage"
+import "./SignupForm.css";
 
-export const LoginForm = () => {
+export const SignupForm = ({ signup }) => {
   const { loading, error } = useSelector((state) => ({
-    loading: state.auth.loading,
-    error: state.auth.error,
+    loading: state.loading,
+    error: state.error,
   }));
-  
 
   const dispatch = useDispatch();
 
   const [state, setState] = useState({
     username: "",
     password: "",
+    displayName: "",
+    message: "",
   });
 
-  const handleLogin = (event) => {
+  const handleSignup = (event) => {
     event.preventDefault();
-    dispatch(actions.login(state));
+    if(dispatch(actions.createUser(state))){
+      setState((prevState) => ({ ...prevState, message: "Registration successful, please login"}));
+    }
   };
 
   const handleChange = (event) => {
@@ -32,7 +34,7 @@ export const LoginForm = () => {
 
   return (
     <React.Fragment>
-      <form id="login-form" onSubmit={handleLogin}>
+      <form id="login-form" onSubmit={handleSignup}>
         <label htmlFor="username">Username</label>
         <input
           type="text"
@@ -50,10 +52,20 @@ export const LoginForm = () => {
           required
           onChange={handleChange}
         />
+         <label htmlFor="displayname">Display name</label>
+        <input
+          type="text"
+          name="displayName"
+          value={state.displayName}
+          autoFocus
+          required
+          onChange={handleChange}
+        />
         <button type="submit" disabled={loading}>
-          Login
+          Sign Up
         </button>
       </form>
+      {state.message ? state.message:null}
       {loading && <Loader />}
       {error && <p style={{ color: "red" }}>{error.message}</p>}
     </React.Fragment>

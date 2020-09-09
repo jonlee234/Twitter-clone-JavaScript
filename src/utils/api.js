@@ -35,6 +35,18 @@ class API {
     this.axiosInstance = axiosInstance;
   }
 
+  // async getUserPicture({message, statusCode}){
+  //   try{
+  //     const result = await this.axiosInstance.put("/users/{username}/picture",{
+  //       message, if(){
+
+  //       }
+
+
+  //     })
+  //   }
+  // }
+
   async login({ username, password }) {
     try {
       const result = await this.axiosInstance.post("/auth/login", {
@@ -56,17 +68,29 @@ class API {
       throw err;
     }
   }
-  async postPicture(image) {
+  async getUserlist() {
     try {
-      const result = await this.axiosInstance.put("/users/username/picture");
-      return result
+      await this.axiosInstance.get("/users");
     } catch (err) {
       helpMeInstructor(err);
       throw err;
     }
   }
-
+  async createUser({ username, displayName, password}) {
+    try {
+      const result = await this.axiosInstance.post("/users", {
+        username,
+        displayName,
+        password
+      });
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
 }
+
 
 
 // WARNING.. do not touch below this line if you want to have a good day =]
