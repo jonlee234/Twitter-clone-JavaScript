@@ -5,12 +5,16 @@ const INITIAL_STATE = {
   users: [],
 };
 
-export const listReducer = (state = INITIAL_STATE, action) => {
+export const listReducer = (state = INITIAL_STATE , action) => {
   switch (action.type) {
     case CREATE_LIST:
-      return { users: [...state.users, action.payload] };
+      return { users:
+         [
+            ...state.users, 
+          action.payload] };
+  
+default:
+  return state;
+}};
 
-    default:
-      return state;
-  }
-};
+
