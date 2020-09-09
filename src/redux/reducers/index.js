@@ -1,6 +1,5 @@
 import { combineReducers } from "redux";
 import { authReducer } from "./auth";
-import { likePost } from './likepost'
-import {msgReducer}  from './messages'
+import imageReducer from "./image"
 
-export default combineReducers({ auth: authReducer, likepost: likePost, messages : msgReducer });
+export default combineReducers({ auth: authReducer, image: imageReducer });
