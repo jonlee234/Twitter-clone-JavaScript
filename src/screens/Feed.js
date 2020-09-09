@@ -1,13 +1,12 @@
 import React from 'react'
-import { MenuContainer } from '../components'
-import { Menu } from '../components/menu/Menu';
+import { MenuContainer, CreatePosts, Messages } from '../components'
 
 
 export const FeedScreen = () => (
 <>
 <MenuContainer />
-<Menu />
-<h1>Kwitter Feed</h1>
+<CreatePosts />
+<Messages />
 </>
 );
 
