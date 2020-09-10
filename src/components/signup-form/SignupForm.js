@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { actions } from "../../redux/actions/signup";
 import { Loader } from "../loader";
 import "./SignupForm.css";
 import { createUser } from "../../redux/actions/signup";
@@ -28,14 +27,14 @@ export const SignupForm = ({ signup }) => {
 
   const handleSignup = (event) => {
     event.preventDefault();
-    if(dispatch(actions.createUser(state))){
+    if(dispatch(state.createUser(state))){
       setState((prevState) => ({ ...prevState, message: "Registration successful, please login"}));
     dispatch(createUser(state));
     if (isSucsessful === true) {
       console.log("working");
     
     }
-  };
+  }}
 
   const handleChange = (event) => {
     const inputName = event.target.name;
@@ -76,13 +75,14 @@ export const SignupForm = ({ signup }) => {
         <button type="submit" disabled={loading}>
           Sign Up
         </button>
-      </form>
+        </form>
+      {/*
       {state.message ? state.message:null}
       {loading && <Loader />}
       {error && <p style={{ color: "red" }}>{error.message}</p>}
         <button type="submit">Sign Up</button>
       </form>
-      { isSucsessful ? <p>Sign up sucesss!! <Link to="/">Return Home</Link></p>:"Please sign up!"}
+      { isSucsessful ? <p>Sign up sucesss!! <Link to="/">Return Home</Link></p>:"Please sign up!"} */}
       
     </React.Fragment>
   );
