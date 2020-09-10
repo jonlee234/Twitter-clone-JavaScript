@@ -16,7 +16,7 @@ export const Messages = (props) => {
             {messages.messages[0] && messages.messages[0].map(item => (
                 <div>
                     <h4>{item.username}</h4>
-                    <p key={item.id}> Post : {item.text}</p>
+            <p key={item.id}> Post : {item.text}</p>
                     <p>{item.time}</p>
                     <LikePosts messageLikes={item.likes} messageId={item.id}/>
                 </div>

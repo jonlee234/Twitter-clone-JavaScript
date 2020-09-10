@@ -139,6 +139,19 @@ class API {
           throw err
         }
       }
+
+      async unLike(userId) {
+        try {
+          const result = await this.axiosInstance.delete("/likes", {
+            userId
+          })
+          return result;
+        }
+        catch (err) {
+          helpMeInstructor(err)
+          throw(err)
+        }
+      }
     }
 
 
