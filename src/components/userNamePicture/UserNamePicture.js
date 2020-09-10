@@ -10,13 +10,14 @@ import { useSelector, useDispatch } from "react-redux";
 //CheckImageType if statement image.type  !== "image/png" && return png jpg gif
 
 const UserNamePicture =()=>  {
-    const [image,setImage] = useState(null)
-    // const img = useSelector (state=>state.image)
-        // console.log(img)
+    const [image,setImage] = useState({image:null})
+    const userName = useSelector (state=>state.auth.username)
+        console.log(userName)
 
     const onFileChange = (e) => {
         e.preventDefault()
         setImage( e.target.files)
+        // useDispatch ImageUpload
         // console.log(this.state)
       }
     const checkImageType = (e) => {
@@ -41,13 +42,21 @@ const UserNamePicture =()=>  {
         }
         return true
     }
-      
+    const onChangeFile = (e) => {
+        e.preventDefault()
+        console.log(e.target.picture)
+        const fileArr= new FormData(e.target)
 
+        postImage(fileArr, userName) 
+        }
+        
      console.log(image)
         return ( 
         <>
-        <form id ="usePicturer"  onSubmit ={onFileChange}> 
-        <input type= "file" ></input>
+        <form id ="usePicturer" onSubmit= {(e)=>onChangeFile(e)}>
+        {/*  onSubmit ={onFileChange}>  */}
+        <input type= "file" name="picture"/>
+        {/* onChange= {onChangeFile}></input> */}
         <button  type ="submit">Submit</button> 
         {/*  image tag apiUrl this.props?? this api url: default img */}
         </form>
@@ -55,5 +64,5 @@ const UserNamePicture =()=>  {
         )
         
 
-}
+        }
 export default UserNamePicture 
