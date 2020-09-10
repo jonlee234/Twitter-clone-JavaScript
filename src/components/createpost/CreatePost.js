@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { CreatePost } from '../../redux/actions'
+import { CreatePost, getMessages } from '../../redux/actions'
 
 export const CreatePosts = () => {
 
@@ -19,7 +19,7 @@ const handleChange = (event) => {
 
 const handleSubmit = (event) => {
     if (event.keyCode === 13) { 
-    dispatch(CreatePost(state.postStr))
+    dispatch(CreatePost(state.postStr),getMessages())
     event.target.value = '' 
     }
 }
