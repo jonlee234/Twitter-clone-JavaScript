@@ -16,4 +16,3 @@ export const getUserlist = () => async (dispatch, getState) => {
     console.error(err);
   }
 };
-

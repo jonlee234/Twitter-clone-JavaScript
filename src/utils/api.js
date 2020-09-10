@@ -93,16 +93,7 @@ class API {
       throw err;
     }
   }
-  async getUser({username}) {
-    try {
-      const data= await this.axiosInstance.get(`/users/`);
-      return data.user
-      
-    } catch (err) {
-      helpMeInstructor(err);
-      throw err;
-    }
-  }
+  
 
 
     async getMessages() {
