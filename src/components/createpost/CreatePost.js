@@ -6,24 +6,20 @@ export const CreatePosts = () => {
 
 const [state, setState] = useState({
         postStr: "",
-        currentDate: ""
       });
 
 const dispatch = useDispatch()
-const userName = useSelector(state => state.auth)
 
 const handleChange = (event) => {
     setState({
         postStr: event.target.value,
-        currentDate: Date.now()
     })
-    console.log('handleChange',state.postStr, state.currentDate)
+    console.log('handleChange',state.postStr)
 }
 
 const handleSubmit = (event) => {
     if (event.keyCode === 13) { 
-        console.log('handleSubmit',state.postStr, state.currentDate)
-    dispatch(CreatePost(state.currentDate,state.postStr, userName.username))
+    dispatch(CreatePost(state.postStr))
     event.target.value = '' 
     }
 }

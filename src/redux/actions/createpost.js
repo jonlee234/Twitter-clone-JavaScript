@@ -1,16 +1,10 @@
-import {v4 as uuid } from 'uuid' // TODO: implement
+import api from '../../utils/api'
 
 //actions
 export const CREATE_POST = 'CREATE_POST'
-export const CreatePost = (timedate, text, userName) => {
-    console.log('Action')
-    return {
-        type: CREATE_POST,
-        newPost: {
-        time: timedate,
-        id: {uuid},
-        like:[],
-        text: text,
-        username: userName
-    }}
+export const CreatePost = (userStr) => async(dispatch, getState) => {
+    try {
+        dispatch({ type: CREATE_POST });
+       await api.postMessage(userStr)}
+    catch (err) {console.log (err)}
 }

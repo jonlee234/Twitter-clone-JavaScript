@@ -1,19 +1,18 @@
 import React from 'react';
-import { useSelector,useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { LikePost } from '../../redux/actions'
 
-export const LikePosts = (likes) => {
+export const LikePosts = (messageLikes, messageId) => {
 
     const dispatch = useDispatch()
-    const userName = useSelector(state => state)
 
     const handleSubmit = () => {
-        dispatch(LikePost(userName.auth.username))
+        dispatch(LikePost(messageId))
     }
 
     return (
         <React.Fragment>
-            <button onClick={handleSubmit}> Likes: {}</button>
+            <button onClick={handleSubmit}> Likes: {messageLikes.length}</button>
         </React.Fragment>
     )
 }

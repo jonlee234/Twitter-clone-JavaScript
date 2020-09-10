@@ -1,9 +1,9 @@
+import api from '../../utils/api'
 export const ADD_LIKE = 'ADD_LIKE'
-export const LikePost = (userName, post) => {
-    console.log(userName)
-    return {
-        type: ADD_LIKE,
-        obj: post,
-        like: userName
-    }
+
+export const LikePost = (messageId) => async(dispatch, getState) => {
+    try {
+        dispatch({ type: ADD_LIKE });
+       await api.likePost(messageId)}
+    catch (err) {console.log (err)}
 }

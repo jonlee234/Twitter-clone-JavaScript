@@ -95,7 +95,7 @@ class API {
   }
   async getUser({username}) {
     try {
-      const data= await this.axiosInstance.get(`/users/j1111`);
+      const data= await this.axiosInstance.get(`/users/`);
       return data.user
       
     } catch (err) {
@@ -103,8 +103,43 @@ class API {
       throw err;
     }
   }
-}
 
+
+    async getMessages() {
+  try {
+    const data = await this.axiosInstance.get("/messages?limit=250&offset=0");
+    return data.messages
+  } catch (err) {
+    helpMeInstructor(err);
+    throw err;
+  }
+}
+    async postMessage(text) {
+      try {
+        const result = await this.axiosInstance.post("/messages", {
+          text
+        });
+        return result;
+      }
+      catch (err) {
+        helpMeInstructor(err)
+        throw err;
+      }
+    }
+
+    async likePost(messageId) {
+      try {
+        const result = await this.axiosInstance.post("/likes", {
+          messageId
+        });
+        return result;
+      }
+        catch (err) {
+          helpMeInstructor(err)
+          throw err
+        }
+      }
+    }
 
 
 // WARNING.. do not touch below this line if you want to have a good day =]

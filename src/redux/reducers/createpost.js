@@ -1,12 +1,13 @@
-import { ADD_LIKE } from '../actions/'
+import { CREATE_POST } from '../actions/'
 import { getStoredState } from 'redux-persist'
 
 const initialState = getStoredState
 export const likeReducer = (state= {initialState}, action) => {
     switch(action.type) {
-        case ADD_LIKE:
+        case CREATE_POST:
             return state
             default:
                 return state
     }
 }
+
