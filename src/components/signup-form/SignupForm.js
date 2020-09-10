@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+<<<<<<< HEAD
 import { Loader } from "../loader";
+=======
+>>>>>>> ca9adf9c3eb8350712c138a86d193451c9acf91b
 import "./SignupForm.css";
 import { createUser } from "../../redux/actions/signup";
-import {Link} from "react-router-dom"
 import "./SignupForm.css";
 
 export const SignupForm = ({ signup }) => {
@@ -34,7 +36,11 @@ export const SignupForm = ({ signup }) => {
       console.log("working");
     
     }
+<<<<<<< HEAD
   }}
+=======
+  }};
+>>>>>>> ca9adf9c3eb8350712c138a86d193451c9acf91b
 
   const handleChange = (event) => {
     const inputName = event.target.name;
@@ -75,6 +81,7 @@ export const SignupForm = ({ signup }) => {
         <button type="submit" disabled={loading}>
           Sign Up
         </button>
+<<<<<<< HEAD
         </form>
       {/*
       {state.message ? state.message:null}
@@ -83,6 +90,17 @@ export const SignupForm = ({ signup }) => {
         <button type="submit">Sign Up</button>
       </form>
       { isSucsessful ? <p>Sign up sucesss!! <Link to="/">Return Home</Link></p>:"Please sign up!"} */}
+=======
+      </form>
+      {/* {state.message ? state.message:null}
+      {loading && <Loader />}
+      {error && <p style={{ color: "red" }}>{error.message}</p>}
+        <button type="submit">Sign Up</button>
+      </form> 
+      // { isSucsessful ? <p>Sign up sucesss!! <Link to="/">Return Home</Link></p>:"Please sign up!"}
+      */}
+     
+>>>>>>> ca9adf9c3eb8350712c138a86d193451c9acf91b
       
     </React.Fragment>
   );
