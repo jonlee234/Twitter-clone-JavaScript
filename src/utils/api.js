@@ -131,11 +131,9 @@ class API {
         }
       }
 
-      async unLike(userId) {
+      async unLike(likeId) {
         try {
-          const result = await this.axiosInstance.delete("/likes", {
-            userId
-          })
+          const result = await this.axiosInstance.delete("/likes/"+likeId)
           return result;
         }
         catch (err) {
