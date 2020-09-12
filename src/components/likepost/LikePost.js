@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { LikePost, UnLikePost } from '../../redux/actions'
+import { getMessages, LikePost, UnLikePost } from '../../redux/actions'
 
 export const LikePosts = (props) => {
 
@@ -15,8 +15,12 @@ export const LikePosts = (props) => {
 
         if (likeBool === true) {
             dispatch(UnLikePost(likeId[0].id))
+            dispatch(getMessages())
         }
-        else {dispatch(LikePost(props.messageId))}
+        else {
+            dispatch(LikePost(props.messageId))
+            dispatch(getMessages())
+        }
     }
 
     return (

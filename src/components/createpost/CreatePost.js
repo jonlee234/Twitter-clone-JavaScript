@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch} from 'react-redux'
 import { CreatePost, getMessages } from '../../redux/actions'
 
 export const CreatePosts = () => {
@@ -17,17 +17,16 @@ const handleChange = (event) => {
 }
 const handleSubmit = (event) => {
     if (event.keyCode === 13) { 
-    dispatch(CreatePost(state.postStr),getMessages())
+    dispatch(CreatePost(state.postStr))
+    dispatch(getMessages())
     event.target.value = '' 
     }
 }
 
 return (
     <>
-        <label>Kwitt</label><br/>
-        <form onSubmit={handleSubmit}>
-        <input type='text' value={state.value} onChange={handleChange}/>
-        </form>
+        <label>Post A Kwitt</label><br/>
+        <input type='text' placeholder='Share your voice!'value={state.value} onChange={handleChange} onKeyDown={handleSubmit}/>
     </>
     )
     };

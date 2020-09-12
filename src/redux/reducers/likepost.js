@@ -1,13 +1,13 @@
 import { ADD_LIKE, DEL_LIKE } from '../actions/'
 import { getStoredState } from 'redux-persist'
 
-const initialState = getStoredState
+const initialState = {}
 export const likeReducer = (state= {initialState}, action) => {
     switch(action.type) {
         case ADD_LIKE:
-            return {liked: true}
+            return state
         case DEL_LIKE:
-            return {liked: false}
+            return state
             default:
                 return state
     }

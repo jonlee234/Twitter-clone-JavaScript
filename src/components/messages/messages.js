@@ -4,11 +4,12 @@ import {LikePosts } from '../likepost/LikePost'
 import {getMessages} from '../../redux/actions/messages'
 import './messages.css'
 import Card from 'react-bootstrap/Card'
+import { DeleteMsg } from "../deleteMsg/deletemessage";
 
 
 
 const Container = (props) => {
-    
+    const currentUser = useSelector(state=>state.auth.username)
     const users = useSelector(state=>state.userList)
     // console.log(users.users[0].users)
     const userInfo = users.users[0].users
@@ -33,6 +34,7 @@ const Container = (props) => {
             <Card.Text>Post : {props.text}</Card.Text>
             <Card.Text>Created at : {props.time}</Card.Text>
             <LikePosts messageLikes={props.likes}messageId={props.id}/>
+            {props.username === currentUser && <DeleteMsg messageId={props.id} />}
         </Card.Body>
     </Card>
     )
