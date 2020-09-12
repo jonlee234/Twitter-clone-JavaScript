@@ -4,7 +4,7 @@ import {LikePosts } from '../likepost/LikePost'
 import {getMessages} from '../../redux/actions/messages'
 import './messages.css'
 import Card from 'react-bootstrap/Card'
-import { LikePost } from "../../redux/actions";
+
 
 
 const Container = (props) => {

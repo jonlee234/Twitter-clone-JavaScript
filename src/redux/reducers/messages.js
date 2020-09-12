@@ -1,4 +1,4 @@
-import {GET_MESSAGES,RESET_MESSAGES,GET_MESSAGEBYID} from '../actions'
+import {GET_MESSAGES,RESET_MESSAGES} from '../actions'
 
 const initialState = {
     messages : []
@@ -14,10 +14,6 @@ export const msgReducer = (state = initialState,action) => {
                ]
             }
         case RESET_MESSAGES :
-            return {
-                messages : []
-            }
-        case GET_MESSAGEBYID:
             return {
                 messages : []
             }

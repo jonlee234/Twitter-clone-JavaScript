@@ -1,5 +1,5 @@
 import React from 'react'
-import { MenuContainer, CreatePosts, GetMessageById } from '../components'
+import { MenuContainer, CreatePosts, GetMessageById, Messages } from '../components'
 
 export const FeedScreen = () => (
 <>

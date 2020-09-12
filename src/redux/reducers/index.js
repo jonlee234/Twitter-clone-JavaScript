@@ -7,6 +7,7 @@ import{userReducer} from "./users"
 import {msgReducer} from './messages'
 import {likeReducer} from './likepost'
 import {getPictureReducer} from './getPicture'
+import {msgByIdReducer} from './getmessagebyid'
 
 export default combineReducers({ 
   auth: authReducer, 
@@ -16,5 +17,6 @@ export default combineReducers({
   users: userReducer,
   messages: msgReducer,
   likes: likeReducer,
-  pic : getPictureReducer
+  pic : getPictureReducer,
+  getMessage: msgByIdReducer
 });
