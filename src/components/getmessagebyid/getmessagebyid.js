@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {Messages, LikePosts} from '../../components'
-import { getMessageById } from '../../redux/actions'
+import { getMessageById, resetMessages } from '../../redux/actions'
 import Card from 'react-bootstrap/Card'
 
 export const GetMessageById = () => {
@@ -15,7 +15,7 @@ export const GetMessageById = () => {
     const {messages, users, messageById } = useSelector((state) => ({
         messages: state.messages.messages[0],
         users: state.userList.users[0].users,
-        messageById: state.getMessage.messagebyId
+        messageById: state.getMessage.messagebyId[0].message
     }))
 
     
@@ -30,11 +30,22 @@ export const GetMessageById = () => {
     const submitHandler = (event) => {
         if (event.keyCode === 13) {
             event.preventDefault()
+             console.log(messageById)
+            setState({
+                clear: false
+            })
             console.log(state.messageId.id)
             dispatch(getMessageById(state.messageId.id))
             event.target.value = ''
         }
     }
+
+    const resetMessageFeed = () => {
+        setState({
+            clear: true
+        })
+    }
+
     return (
         <>
          <form>
@@ -45,16 +56,17 @@ export const GetMessageById = () => {
             {users.map(items => <option value={items.username} />)}
         </datalist>
         </form>
-        {state.clear === true 
-        ?<Messages />
-        :<Card>
+        <button onClick={resetMessageFeed}>Message Feed</button>
+        {state.clear === true && <Messages />}
+
+        {state.clear === false && <Card>
         {/* <Card.Img style={{height:'290px'}} src={picture ==`https://kwitter-api.herokuapp.com/users/${props.username}/picture` ? `https://kwitter-api.herokuapp.com/users/${props.username}/picture`: "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"}
               alt={'ok'}/> */}
-    <Card.Body>
+        <Card.Body>
         <Card.Title>{messageById.username}</Card.Title>
         <Card.Text>Post : {messageById.text}</Card.Text>
         <Card.Text>Created at : {messageById.createdAt}</Card.Text>
-        <LikePosts messageLikes={messageById.likes}messageId={messageById.id}/>
+        <LikePosts messageLikes={messageById.likes} messageId={messageById.id}/>
     </Card.Body>
 </Card>
         }
