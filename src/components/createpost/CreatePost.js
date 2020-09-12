@@ -14,7 +14,6 @@ const handleChange = (event) => {
     setState({
         postStr: event.target.value,
     })
-    console.log('handleChange',state.postStr)
 }
 const handleSubmit = (event) => {
     if (event.keyCode === 13) { 
@@ -22,13 +21,12 @@ const handleSubmit = (event) => {
     event.target.value = '' 
     }
 }
-console.log(state)
-// console.log(state)
+
 return (
     <>
         <label>Kwitt</label><br/>
         <form onSubmit={handleSubmit}>
-        <input type='text' value={state} onChange={handleChange}/>
+        <input type='text' value={state.value} onChange={handleChange}/>
         </form>
     </>
     )
