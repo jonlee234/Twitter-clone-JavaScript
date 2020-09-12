@@ -7,25 +7,25 @@ import Card from 'react-bootstrap/Card'
 
 const Container = (props) => {
     
-    // const users = useSelector(state=>state.userList)
-    // // console.log(users.users[0].users)
-    // const userInfo = users.users[0].users
-    // let picture = ''
+    const users = useSelector(state=>state.userList)
+    // console.log(users.users[0].users)
+    const userInfo = users.users[0].users
+    let picture = ''
     
-    //    for(let i = 0; i < userInfo.length;i++){
-    //        if(userInfo[i].username === props.username && userInfo[i].pictureLocation !== null){
-    //         //    console.log(userInfo[i].pictureLocation)
-    //            picture = `https://kwitter-api.herokuapp.com/users/${props.username}/picture`
-    //        } 
-    //     //    if(userInfo[i].username !== props.username) {
-    //     //        picture = "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
-    //     //    }
-    //    }
+       for(let i = 0; i < userInfo.length;i++){
+           if(userInfo[i].username === props.username && userInfo[i].pictureLocation !== null){
+            //    console.log(userInfo[i].pictureLocation)
+               picture = `https://kwitter-api.herokuapp.com/users/${props.username}/picture`
+           } 
+        //    if(userInfo[i].username !== props.username) {
+        //        picture = "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
+        //    }
+       }
 
     return (
         <Card>
-            {/* <Card.Img style={{height:'250px'}} src={picture ==`https://kwitter-api.herokuapp.com/users/${props.username}/picture` ? `https://kwitter-api.herokuapp.com/users/${props.username}/picture`: "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"}
-                //   alt={'ok'}/> */}
+            <Card.Img style={{height:'290px'}} src={picture ==`https://kwitter-api.herokuapp.com/users/${props.username}/picture` ? `https://kwitter-api.herokuapp.com/users/${props.username}/picture`: "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"}
+                  alt={'ok'}/>
         <Card.Body>
             <Card.Title>{props.username}</Card.Title>
             <Card.Text>Post : {props.text}</Card.Text>

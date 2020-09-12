@@ -1,4 +1,4 @@
-import { CREATE_LIST } from "../actions/userlist";
+import { CREATE_LIST } from "../actions";
 
 // INITIAL STATE
 const INITIAL_STATE = {

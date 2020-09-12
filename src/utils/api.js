@@ -71,11 +71,10 @@ class API {
   }
   async getUserlist() {
     try {
-      await this.axiosInstance.get("/users");
       const data= await this.axiosInstance.get("users?limit=300&offset=0");
       return data
-      
-    } catch (err) {
+    } 
+      catch (err) {
       helpMeInstructor(err);
       throw err;
     }
