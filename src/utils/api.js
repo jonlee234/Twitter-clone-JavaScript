@@ -103,27 +103,21 @@ class API {
   } catch (err) {
     helpMeInstructor(err);
     throw err;
-  }
-  async getMessages(){
-    try{
-      const result = await this.axiosInstance.get('messages?limit=250&offset=0')
-      return result
-    } catch (err){
-      helpMeInstructor(err)
-      throw err
-    }
-  }
-  async postMessage({text}){
-    try{
-      const data = await this.axiosInstance.post('/messages',{
+  }}
+
+  async postMessage(text) {
+    try {
+      const result = await this.axiosInstance.post("/messages", {
         text
-      })
-      return data
-    } catch (err){
+      });
+      return result;
+    }
+    catch (err) {
       helpMeInstructor(err)
-      throw err
+      throw err;
     }
   }
+
   async postImage({username,img}){
     try{
       const data = await this.axiosInstance.put('/users/' + username + '/picture',img)
@@ -134,6 +128,7 @@ class API {
       throw err
     }
   }
+
   async getPicture(username){
     try{
       const data = await this.axiosInstance.get('/users/' + username + '/picture')
@@ -143,19 +138,6 @@ class API {
       throw err
     }
   }
-}
-    async postMessage(text) {
-      try {
-        const result = await this.axiosInstance.post("/messages", {
-          text
-        });
-        return result;
-      }
-      catch (err) {
-        helpMeInstructor(err)
-        throw err;
-      }
-    }
 
     async likePost(messageId) {
       try {

@@ -10,8 +10,6 @@ const [state, setState] = useState({
 
 const dispatch = useDispatch()
 
-const [state,setState] = useState('')
-const dispatch = useDispatch()
 const handleChange = (event) => {
     setState({
         postStr: event.target.value,

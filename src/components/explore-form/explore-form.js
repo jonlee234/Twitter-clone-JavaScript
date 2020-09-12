@@ -2,7 +2,7 @@ import React ,{useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserlist } from "../../redux/actions/userlist";
 import "./explore-form.css";
-import { v4 as uuidv4 } from "uuid";
+//import { v4 as uuidv4 } from 'uuid';
 import Card from "react-bootstrap/Card";
 import Camera from "./images/cameraplace.jpg";
 import { once } from 'lodash';
@@ -36,7 +36,7 @@ export const ExploreForm = () => {
           <Container
             photo={item.pictureLocation}
             displayName={item.displayName}
-            key={uuidv4()}
+            //key={uuidv4()}
             username={item.username}
             about={item.about}
           />
