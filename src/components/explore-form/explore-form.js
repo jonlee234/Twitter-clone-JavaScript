@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserlist } from "../../redux/actions/userlist";
 import "./explore-form.css";
@@ -11,6 +11,7 @@ const Container = (props) => {
     <Card style={{ width: "18rem" }}>
       <Card.Img
         variant="top"
+        style={{height:'286px'}}
         src={
           props.photo === null
             ? "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
@@ -26,18 +27,21 @@ const Container = (props) => {
   );
 };
 export const ExploreForm = () => {
-  const users = useSelector((state) => state.users);
+  const users = useSelector((state) => state.userList);
 
   const dispatch = useDispatch();
 
-  const buffer = () => {
-    dispatch(getUserlist());
-  };
-
+  // const buffer = () => {
+  //   dispatch(getUserlist());
+  // };
+  useEffect(()=>{
+    dispatch(getUserlist())
+  },[])
+// console.log(users.users[0].users.map(item => console.table(item.username)))
   return (
     <React.Fragment>
       <div id="cards">
-        {users.users[1].map((item) => (
+        {users.users && users.users[0].users.map((item) => (
           <Container
             photo={item.pictureLocation}
             displayName={item.displayName}

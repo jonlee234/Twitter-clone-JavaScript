@@ -8,9 +8,9 @@ const INITIAL_STATE = {
 export const listReducer = (state = INITIAL_STATE , action) => {
   switch (action.type) {
     case CREATE_LIST:
-      return { users:
-         [
-            ...state.users, 
+      return { 
+        users:[
+            // ...state.users, 
           action.payload] };
   
 default:

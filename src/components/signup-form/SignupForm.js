@@ -35,7 +35,7 @@ export const SignupForm = ({ signup }) => {
       console.log("working");
     
     }
-  };
+  }};
 
   const handleChange = (event) => {
     const inputName = event.target.name;
@@ -77,6 +77,7 @@ export const SignupForm = ({ signup }) => {
           Sign Up
         </button>
       </form>
+      <form>
       {state.message ? state.message:null}
       {loading && <Loader />}
       {error && <p style={{ color: "red" }}>{error.message}</p>}

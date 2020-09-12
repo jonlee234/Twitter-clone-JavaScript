@@ -1,5 +1,5 @@
 #menu {
-  background-color: lightskyblue;
+  background: linear-gradient(0.25turn,lightskyblue,grey,lightskyblue);
   display: flex;
   justify-content: space-between;
   align-items: center;

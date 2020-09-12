@@ -19,7 +19,9 @@ export const msgReducer = (state = initialState,action) => {
                 messages : []
             }
             case CREATE_POST:
-        return []
+        return {
+            messages : [...state.messages]
+        }
         default:
             return state;
     }
