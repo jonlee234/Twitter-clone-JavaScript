@@ -92,8 +92,6 @@ class API {
       throw err;
     }
   }
-  
-
 
     async getMessages() {
   try {
@@ -157,6 +155,17 @@ class API {
           return result;
         }
         catch (err) {
+          helpMeInstructor(err)
+          throw(err)
+        }
+      }
+
+      async getMessageById(messageId) {
+        try {
+          const data = await this.axiosInstance.get('/messages/'+messageId)
+          return data
+        }
+        catch(err) {
           helpMeInstructor(err)
           throw(err)
         }

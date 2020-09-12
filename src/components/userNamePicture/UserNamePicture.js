@@ -17,6 +17,7 @@ const UserNamePicture =()=>  {
     }
     )
     const [state,setState] = useState(false)
+    const [search,setSearch] = useState('')
     const userName = useSelector(state=>state.auth.username)
     const pic = useSelector(state=> state.pic)
     const dispatch = useDispatch()
@@ -69,8 +70,14 @@ const UserNamePicture =()=>  {
             img : null
         }))
     }
-    const click = e => {
-        dispatch(getPicture(userName))
+  
+    const handleChange = e => {
+        setSearch(e.target.value)
+        setState(false)
+    }
+    const handleSubmit = e => {
+        e.preventDefault()
+        dispatch(getPicture(search))
         setState(true)
     }
   
@@ -89,9 +96,11 @@ const UserNamePicture =()=>  {
                     <input type='file' id='filename' name='picture'  onChange={submit}/>
                     <button type='submit'>Submit</button>
                 </form>
-                <button onClick={click}>Test</button>
-                <button onClick={()=>setState(false)}>Reset</button>
-                {state == false ? '' : <img src={`https://kwitter-api.herokuapp.com/users/${userName}/picture`} alt={'not working'}/>}
+                <form onSubmit={handleSubmit}>
+                    <input type='text' value={search} onChange={handleChange} />
+                </form>
+                <button onClick={()=>{setState(false);setSearch('')}}>Reset</button>
+                {state == false ? '' : <img src={`https://kwitter-api.herokuapp.com/users/${search}/picture`} alt={'not working'}/>}
             </>
         )
         

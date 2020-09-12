@@ -1,9 +1,11 @@
-import React,{useEffect, useState} from "react";
+import React,{useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {LikePosts } from '../likepost/LikePost'
 import {getMessages} from '../../redux/actions/messages'
 import './messages.css'
 import Card from 'react-bootstrap/Card'
+import { LikePost } from "../../redux/actions";
+
 
 const Container = (props) => {
     
@@ -30,7 +32,7 @@ const Container = (props) => {
             <Card.Title>{props.username}</Card.Title>
             <Card.Text>Post : {props.text}</Card.Text>
             <Card.Text>Created at : {props.time}</Card.Text>
-            {/* <LikePosts likes={props.likes}/> */}
+            <LikePosts messageLikes={props.likes}messageId={props.id}/>
         </Card.Body>
     </Card>
     )
@@ -59,7 +61,7 @@ export const Messages = (props) => {
     //         }
     //     }
     // }
-   console.log(messages.messages[0])
+
     return(
         
         <div>
@@ -73,7 +75,7 @@ export const Messages = (props) => {
                 //     <br />
                 //     <br/>
                 // </div>
-               <Container key={item.id} username={item.username} text={item.text} time={item.createdAt}/>
+               <Container key={item.id} username={item.username} text={item.text} time={item.createdAt} likes={item.likes} id={item.id}/>
     ))}
 
             {/* // <h4>{props.username}</h4>

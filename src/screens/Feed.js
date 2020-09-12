@@ -1,12 +1,12 @@
 import React from 'react'
-import { MenuContainer, CreatePosts, Messages } from '../components'
-
+import { MenuContainer, CreatePosts, GetMessageById } from '../components'
 
 export const FeedScreen = () => (
 <>
 <MenuContainer />
 <CreatePosts />
-<Messages />
+<GetMessageById />
+{/* <Messages /> */}
 </>
 );
 

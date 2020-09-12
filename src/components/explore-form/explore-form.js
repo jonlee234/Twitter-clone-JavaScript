@@ -1,6 +1,7 @@
 import React,{useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserList } from "../../redux/actions";
+import {getPicture} from '../../redux/actions/getPicture'
 import "./explore-form.css";
 //import { v4 as uuidv4 } from "uuid";
 import Card from "react-bootstrap/Card";
