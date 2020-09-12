@@ -10,24 +10,28 @@ const [state, setState] = useState({
 
 const dispatch = useDispatch()
 
+const [state,setState] = useState('')
+const dispatch = useDispatch()
 const handleChange = (event) => {
     setState({
         postStr: event.target.value,
     })
     console.log('handleChange',state.postStr)
 }
-
 const handleSubmit = (event) => {
     if (event.keyCode === 13) { 
     dispatch(CreatePost(state.postStr),getMessages())
     event.target.value = '' 
     }
 }
-
+console.log(state)
+// console.log(state)
 return (
     <>
         <label>Kwitt</label><br/>
-        <input type='text' value={state.value} onChange={handleChange} onKeyDown={handleSubmit}/>
+        <form onSubmit={handleSubmit}>
+        <input type='text' value={state} onChange={handleChange}/>
+        </form>
     </>
     )
     };

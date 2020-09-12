@@ -4,6 +4,12 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    width: 1200px;
+    margin:auto
+    
 }
-
+.card{
+    height: 500px;
+    margin: 5px;
+}
 

@@ -3,7 +3,7 @@ import { render } from "react-dom"
 import { actions } from "../actions/auth"
 
 // const newImage = "test"
-const initialState = {image : "test"}
+const initialState = {image : ''}
  const imageReducer = (state=initialState, action) => {
     switch (action.type){
         case IMAGE: 

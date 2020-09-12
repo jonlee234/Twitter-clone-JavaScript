@@ -6,13 +6,15 @@ import { signupReducer } from "./signup";
 import{userReducer} from "./users"
 import {msgReducer} from './messages'
 import {likeReducer} from './likepost'
+import {getPictureReducer} from './getPicture'
 
 export default combineReducers({ 
   auth: authReducer, 
   image: imageReducer,
-  userlist: listReducer,
+  userList: listReducer,
   signup: signupReducer,
   users: userReducer,
   messages: msgReducer,
-  likes: likeReducer
+  likes: likeReducer,
+  pic : getPictureReducer
 });

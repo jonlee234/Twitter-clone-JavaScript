@@ -11,6 +11,7 @@ const Container = (props) => {
     <Card style={{ width: "18rem" }}>
       <Card.Img
         variant="top"
+        style={{height:'286px'}}
         src={
           props.photo === null
             ? "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
@@ -31,7 +32,7 @@ export const ExploreForm = () => {
   return (
     <React.Fragment>
       <div id="cards">
-        {users.users[1].map((item) => (
+        {users.users && users.users[0].users.map((item) => (
           <Container
             photo={item.pictureLocation}
             displayName={item.displayName}

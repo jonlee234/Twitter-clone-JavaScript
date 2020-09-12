@@ -28,7 +28,7 @@ export const SignupForm = ({ signup }) => {
       console.log("working");
     
     }
-  };
+  }};
 
   const handleChange = (event) => {
     const inputName = event.target.name;

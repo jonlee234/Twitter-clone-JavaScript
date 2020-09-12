@@ -21,5 +21,7 @@ export const createUser = (credentials) => async (dispatch, getState) => {
     }
   };
 
-
+  export const actions = {
+    createUser
+  };
   
