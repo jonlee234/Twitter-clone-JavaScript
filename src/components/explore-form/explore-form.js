@@ -1,11 +1,11 @@
-import React,{useEffect} from "react";
+import React ,{useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserlist } from "../../redux/actions/userlist";
 import "./explore-form.css";
 import { v4 as uuidv4 } from "uuid";
 import Card from "react-bootstrap/Card";
 import Camera from "./images/cameraplace.jpg";
-
+import { once } from 'lodash';
 const Container = (props) => {
   return (
     <Card style={{ width: "18rem" }}>
@@ -27,17 +27,8 @@ const Container = (props) => {
   );
 };
 export const ExploreForm = () => {
-  const users = useSelector((state) => state.userList);
-
-  const dispatch = useDispatch();
-
-  // const buffer = () => {
-  //   dispatch(getUserlist());
-  // };
-  useEffect(()=>{
-    dispatch(getUserlist())
-  },[])
-// console.log(users.users[0].users.map(item => console.table(item.username)))
+  const users = useSelector((state) => state.users);
+   once(useDispatch(getUserlist()))
   return (
     <React.Fragment>
       <div id="cards">
@@ -54,3 +45,4 @@ export const ExploreForm = () => {
     </React.Fragment>
   );
 };
+

@@ -1,19 +1,27 @@
 import React from 'react';
-import { useSelector,useDispatch } from "react-redux";
-import { LikePost } from '../../redux/actions'
+import { useDispatch, useSelector } from "react-redux";
+import { LikePost, UnLikePost } from '../../redux/actions'
 
-export const LikePosts = (likes) => {
+export const LikePosts = (props) => {
 
     const dispatch = useDispatch()
-    const userName = useSelector(state => state)
+    const likes = props.messageLikes
+    const username = useSelector(state => state.auth.username)
+    
 
     const handleSubmit = () => {
-        dispatch(LikePost(userName.auth.username))
+        const likeBool = likes.some(element => (element.username === username))
+        const likeId = likes.filter(element => (element.username === username))
+
+        if (likeBool === true) {
+            dispatch(UnLikePost(likeId[0].id))
+        }
+        else {dispatch(LikePost(props.messageId))}
     }
 
     return (
         <React.Fragment>
-            <button onClick={handleSubmit}> Likes: {}</button>
+            <button onClick={handleSubmit}> Likes: {likes.length}</button>
         </React.Fragment>
     )
 }

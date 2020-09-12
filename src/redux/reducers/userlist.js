@@ -16,5 +16,3 @@ export const listReducer = (state = INITIAL_STATE , action) => {
 default:
   return state;
 }};
-
-
