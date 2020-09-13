@@ -1,7 +1,7 @@
 {
   "name": "kwitter-frontend",
   "version": "2.0.1",
-  "private": false,
+  "private": true,
   "homepage": ".",
   "dependencies": {
     "3": "^2.1.0",

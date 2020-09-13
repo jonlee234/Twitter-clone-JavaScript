@@ -1,5 +1,4 @@
 import { ADD_LIKE, DEL_LIKE } from '../actions/'
-import { getStoredState } from 'redux-persist'
 
 const initialState = {}
 export const likeReducer = (state= {initialState}, action) => {

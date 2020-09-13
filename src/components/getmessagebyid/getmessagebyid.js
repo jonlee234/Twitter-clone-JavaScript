@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {Messages, LikePosts} from '../../components'
-import { getMessageById, resetMessages } from '../../redux/actions'
+import { getMessageById} from '../../redux/actions'
 import Card from 'react-bootstrap/Card'
 
 export const GetMessageById = () => {

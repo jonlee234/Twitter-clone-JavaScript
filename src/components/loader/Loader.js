@@ -6,7 +6,3 @@ There are many more on the web use one of these or create your own!
 */
 
 export const Loader = () => <>LOADING.......</>;
-
-{/* <div class="spinner-border m-5" role="status">
-  <span class="sr-only">Loading...</span>
-</div> */}

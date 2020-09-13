@@ -1,6 +1,4 @@
 import {IMAGE} from "../actions/postImage"
-import { render } from "react-dom"
-import { actions } from "../actions/auth"
 
 // const newImage = "test"
 const initialState = {image : ''}

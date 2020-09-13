@@ -1,11 +1,10 @@
 import React,{useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserList } from "../../redux/actions";
-import {getPicture} from '../../redux/actions/getPicture'
 import "./explore-form.css";
 //import { v4 as uuidv4 } from "uuid";
 import Card from "react-bootstrap/Card";
-import Camera from "./images/cameraplace.jpg";
+
 
 const Container = (props) => {
   return (
@@ -36,10 +35,9 @@ export const ExploreForm = () => {
   //   dispatch(getUserlist());
   // };
   useEffect(()=>{
-    dispatch(getUserList())
+    dispatch(getUserList())// eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 // console.log(users.users[0].users.map(item => console.table(item.username)))
-  console.log(users.users[0])
   return (
     <React.Fragment>
       <h1 id='userListHead'>Users</h1>

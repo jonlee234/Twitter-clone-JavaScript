@@ -27,7 +27,7 @@ const Container = (props) => {
 
     return (
         <Card>
-            <Card.Img style={{height:'290px'}} src={picture ==`https://kwitter-api.herokuapp.com/users/${props.username}/picture` ? `https://kwitter-api.herokuapp.com/users/${props.username}/picture`: "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"}
+            <Card.Img style={{height:'290px'}} src={picture ===`https://kwitter-api.herokuapp.com/users/${props.username}/picture` ? `https://kwitter-api.herokuapp.com/users/${props.username}/picture`: "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"}
                   alt={'ok'}/>
         <Card.Body>
             <Card.Title>{props.username}</Card.Title>
@@ -45,14 +45,14 @@ export const Messages = (props) => {
     const dispatch = useDispatch()
 
     useEffect(()=>{
-    dispatch(getMessages())
+    dispatch(getMessages())// eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
     
     // console.log(users.users[0].users)
     // console.log(messages)
     // const userInfo = users.users[0].users
    
-    const messagesInfo = messages.messages[0]
+    //const messagesInfo = messages.messages[0]
     // for(let i = 0; i < messagesInfo.length;i++){
     //     console.log(messagesInfo[i].username)
     // // }

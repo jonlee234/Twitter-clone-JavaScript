@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
-import { render } from "react-dom";
-import { Component, useState } from "react"
+import { useState } from "react"
 import {postImage} from "../../redux/actions/postImage"
 import {getPicture} from '../../redux/actions/getPicture'
 import { useSelector, useDispatch } from "react-redux";
@@ -19,7 +18,6 @@ const UserNamePicture =()=>  {
     const [state,setState] = useState(false)
     const [search,setSearch] = useState('')
     const userName = useSelector(state=>state.auth.username)
-    const pic = useSelector(state=> state.pic)
     const dispatch = useDispatch()
     // const img = useSelector (state=>state.image)
         // console.log(img)
@@ -100,7 +98,7 @@ const UserNamePicture =()=>  {
                     <input type='text' value={search} onChange={handleChange} />
                 </form>
                 <button onClick={()=>{setState(false);setSearch('')}}>Reset</button>
-                {state == false ? '' : <img src={`https://kwitter-api.herokuapp.com/users/${search}/picture`} alt={'not working'}/>}
+                {state === false ? '' : <img src={`https://kwitter-api.herokuapp.com/users/${search}/picture`} alt={'not working'}/>}
             </>
         )
         
