@@ -1,6 +1,6 @@
 image: node:10
  
-image: node:7.9.0 # change to match your node version
+image: node:14.8.0 # change to match your node version
 
 cache:
   paths:
