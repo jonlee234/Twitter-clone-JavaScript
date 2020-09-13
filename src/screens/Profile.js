@@ -5,10 +5,11 @@ import UserNamePicture from "../components/userNamePicture/UserNamePicture"
 
 
 export const ProfileScreen = () => {
-  
+ 
+ 
  return (
  <>
-    <MenuContainer />
+    <MenuContainer/>
     <h2>Profile</h2>
     <UserNamePicture/>
   </>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { actions } from "../../redux/actions/auth";
+import { actions, getMessages, getUserList } from "../../redux/actions";
 import { Loader } from "../loader";
 import "./LoginForm.css";
 //import {postImage} from "../../redux/actions/postImage"
@@ -22,6 +22,8 @@ export const LoginForm = () => {
   const handleLogin = (event) => {
     event.preventDefault();
     dispatch(actions.login(state));
+    dispatch(getUserList())
+   dispatch(getMessages()) 
   };
 
   const handleChange = (event) => {
