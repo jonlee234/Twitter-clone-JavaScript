@@ -45,6 +45,26 @@ export const GetMessageById = () => {
             clear: true
         })
     }
+    const conditionRender = () => {
+        switch (state.clear) {
+            case true:
+            return (<Messages />);
+            case false:
+            return (
+            <Card>
+            {/* <Card.Img style={{height:'290px'}} src={picture ==`https://kwitter-api.herokuapp.com/users/${props.username}/picture` ? `https://kwitter-api.herokuapp.com/users/${props.username}/picture`: "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"}
+                alt={'ok'}/> */}
+            <Card.Body>
+            <Card.Title>{messageById[0].message.username}</Card.Title>
+            <Card.Text>Post : {messageById[0].message.text}</Card.Text>
+            <Card.Text>Created at : {messageById[0].message.createdAt}</Card.Text>
+            <LikePosts messageLikes={messageById[0].message.likes} messageId={messageById.id}/>
+            </Card.Body>
+            </Card>);
+            default:
+            return <Messages />
+        }
+    }
 
     return (
         <>
@@ -57,18 +77,7 @@ export const GetMessageById = () => {
         </datalist>
         </form>
         <button onClick={resetMessageFeed}>Message Feed</button>
-        {state.clear ? <Messages /> 
-        : <Card>
-        {/* <Card.Img style={{height:'290px'}} src={picture ==`https://kwitter-api.herokuapp.com/users/${props.username}/picture` ? `https://kwitter-api.herokuapp.com/users/${props.username}/picture`: "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"}
-              alt={'ok'}/> */}
-        <Card.Body>
-        <Card.Title>{messageById[0].message.username}</Card.Title>
-        <Card.Text>Post : {messageById[0].message.text}</Card.Text>
-        <Card.Text>Created at : {messageById[0].message.createdAt}</Card.Text>
-        <LikePosts messageLikes={messageById[0].message.likes} messageId={messageById.id}/>
-    </Card.Body>
-</Card>
-        }
+        <conditionRender />
         </>
     )
 }
