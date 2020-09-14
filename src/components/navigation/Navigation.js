@@ -26,8 +26,7 @@ export const Navigation = () => (
         component={ProfileScreen}
       />
       <ConnectedRoute
-        exact 
-        //isProtected
+        isProtected
         path="/messagefeed"
         component={FeedScreen}
       />
