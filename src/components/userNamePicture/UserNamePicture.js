@@ -18,6 +18,7 @@ const UserNamePicture =()=>  {
     const [state,setState] = useState(false)
     const [search,setSearch] = useState('')
     const userName = useSelector(state=>state.auth.username)
+    const userList = useSelector(state => state.userList.users[0].users)
     const dispatch = useDispatch()
     // const img = useSelector (state=>state.image)
         // console.log(img)
@@ -95,7 +96,10 @@ const UserNamePicture =()=>  {
                     <button type='submit'>Submit</button>
                 </form>
                 <form onSubmit={handleSubmit}>
-                    <input type='text' value={search} onChange={handleChange} />
+                    <input type='search' value={search} onChange={handleChange} placeholder='search image by id' list='searchAutofill'/>
+                    <datalist id='searchAutofill'>
+                    {userList.map(items => <option value={items.username} />)}
+                    </datalist>
                 </form>
                 <button onClick={()=>{setState(false);setSearch('')}}>Reset</button>
                 {state === false ? '' : <img src={`https://kwitter-api.herokuapp.com/users/${search}/picture`} alt={'not working'}/>}
