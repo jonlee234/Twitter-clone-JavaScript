@@ -45,13 +45,9 @@ export const GetMessageById = () => {
             clear: true
         })
     }
-    const conditionRender = () => {
-        switch (state.clear) {
-            case true:
-            return (<Messages />);
-            case false:
-            return (
-            <Card>
+
+    const messageIdCard = 
+        <Card>
             {/* <Card.Img style={{height:'290px'}} src={picture ==`https://kwitter-api.herokuapp.com/users/${props.username}/picture` ? `https://kwitter-api.herokuapp.com/users/${props.username}/picture`: "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"}
                 alt={'ok'}/> */}
             <Card.Body>
@@ -60,7 +56,17 @@ export const GetMessageById = () => {
             <Card.Text>Created at : {messageById[0].message.createdAt}</Card.Text>
             <LikePosts messageLikes={messageById[0].message.likes} messageId={messageById.id}/>
             </Card.Body>
-            </Card>);
+            </Card>
+
+    const conditionRender = () => {
+        switch (state.clear) {
+            case true:
+            return <Messages />
+            break;
+            case false:
+            return <messageIdCard />
+            // eslint-disable-next-line no-unreachable
+            break;
             default:
             return <Messages />
         }
