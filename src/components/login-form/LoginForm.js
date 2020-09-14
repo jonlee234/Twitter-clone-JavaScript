@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { actions, getMessages, getUserList } from "../../redux/actions";
+import { actions, getMessages, getUserList, getMessageById } from "../../redux/actions";
 import { Loader } from "../loader";
 import "./LoginForm.css";
 //import {postImage} from "../../redux/actions/postImage"
@@ -23,7 +23,8 @@ export const LoginForm = () => {
     event.preventDefault();
     dispatch(actions.login(state));
     dispatch(getUserList())
-   dispatch(getMessages()) 
+   dispatch(getMessages())
+   dispatch(getMessageById(25800)) 
   };
 
   const handleChange = (event) => {

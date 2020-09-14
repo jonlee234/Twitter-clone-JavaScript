@@ -1,13 +1,6 @@
 import {GET_MESSAGEBYID} from '../actions'
     
 const initialState = {
-    messagebyId : [{
-        id:0,
-        text:"",
-        username:"",
-        createdAt:"",
-        likes:[{}]
-    }]
 }
 
 export const msgByIdReducer = (state = initialState,action) => {
