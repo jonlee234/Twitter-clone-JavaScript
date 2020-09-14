@@ -12,8 +12,8 @@ export const GetMessageById = () => {
     })
 
     const dispatch = useDispatch()
-    const {messages, users, messageById } = useSelector((state) => ({
-        messages: state.messages.messages[0],
+    const {messagelist, users, messageById } = useSelector((state) => ({
+        messagelist: state.messages.messages[0],
         users: state.userList.users[0].users,
         messageById: state.getMessage.messagebyId
     }))
@@ -23,19 +23,20 @@ export const GetMessageById = () => {
     const changeHandler = (event) => {
         setState({
             searchStr: event.target.value,
-            messageId: messages.find(element => element.text.includes(state.searchStr)||element.username.includes(state.searchStr))
+            messageId: messagelist.filter(element => element.text.includes(state.searchStr)||element.username.includes(state.searchStr))
         })
+        console.log(state.searchStr, state.messageId)
     }
 
     const submitHandler = (event) => {
         if (event.keyCode === 13) {
             event.preventDefault()
-             console.log(messageById)
             setState({
+                searchStr: event.target.value,
                 clear: false
             })
-            console.log(state.messageId.id)
-            dispatch(getMessageById(state.messageId.id))
+            console.log(state.messageId)
+            dispatch(getMessageById(state.messageId[0].id))
             event.target.value = ''
         }
     }
@@ -58,22 +59,20 @@ export const GetMessageById = () => {
             </Card.Body>
             </Card>
 
-    const conditionRender = (props = state.clear) => {
-        return state.clear ? <Messages/>:<messageIdCard/>
-    }
-
     return (
         <>
          <form>
             <label>Search</label>
         <input type='search' value={state.value} placeholder='Search messages...' list='searchAutofill' onChange={changeHandler} onKeyDown={submitHandler}/>
         <datalist id='searchAutofill'>
-            {messages.map(items => <option value={items.text} />)}
+            {messagelist.map(items => <option value={items.text} />)}
             {users.map(items => <option value={items.username} />)}
         </datalist>
         </form>
         <button onClick={resetMessageFeed}>Message Feed</button>
-        {conditionRender}
+        {state.clear
+        ?<Messages/>
+        :messageIdCard}
         </>
     )
 }
