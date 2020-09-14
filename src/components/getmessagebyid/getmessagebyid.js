@@ -28,7 +28,6 @@ export const GetMessageById = () => {
     }
 
     const submitHandler = (event) => {
-        console.log(messageById[0].message)
         if (event.keyCode === 13) {
             event.preventDefault()
              console.log(messageById)
@@ -58,10 +57,8 @@ export const GetMessageById = () => {
         </datalist>
         </form>
         <button onClick={resetMessageFeed}>Message Feed</button>
-        {state.clear === true && <Messages />}
-
-        {state.clear === false && 
-        <Card>
+        {state.clear ? <Messages /> 
+        : <Card>
         {/* <Card.Img style={{height:'290px'}} src={picture ==`https://kwitter-api.herokuapp.com/users/${props.username}/picture` ? `https://kwitter-api.herokuapp.com/users/${props.username}/picture`: "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"}
               alt={'ok'}/> */}
         <Card.Body>
