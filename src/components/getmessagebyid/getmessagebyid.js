@@ -62,6 +62,7 @@ export const GetMessageById = () => {
         switch (state.clear) {
             case true:
             return <Messages />
+            // eslint-disable-next-line no-unreachable
             break;
             case false:
             return <messageIdCard />
