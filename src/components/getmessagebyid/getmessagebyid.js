@@ -48,8 +48,10 @@ export const GetMessageById = () => {
     }
 
     const messageIdCard = 
-        <Card>
-            {/* <Card.Img style={{height:'290px'}} src={picture ==`https://kwitter-api.herokuapp.com/users/${props.username}/picture` ? `https://kwitter-api.herokuapp.com/users/${props.username}/picture`: "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"}
+        <React.Fragment>
+        <button onClick={resetMessageFeed}>Message Feed</button>
+        <Card> 
+           {/* <Card.Img style={{height:'290px'}} src={picture ==`https://kwitter-api.herokuapp.com/users/${props.username}/picture` ? `https://kwitter-api.herokuapp.com/users/${props.username}/picture`: "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"}
                 alt={'ok'}/> */}
             <Card.Body>
             <Card.Title>{messageById[0].message.username}</Card.Title>
@@ -58,6 +60,7 @@ export const GetMessageById = () => {
             <LikePosts messageLikes={messageById[0].message.likes} messageId={messageById.id}/>
             </Card.Body>
             </Card>
+            </React.Fragment>
 
     return (
         <>
@@ -69,7 +72,7 @@ export const GetMessageById = () => {
             {users.map(items => <option value={items.username} />)}
         </datalist>
         </form>
-        <button onClick={resetMessageFeed}>Message Feed</button>
+        
         {state.clear
         ?<Messages/>
         :messageIdCard}
