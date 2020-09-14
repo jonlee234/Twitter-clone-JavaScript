@@ -25,7 +25,6 @@ export const GetMessageById = () => {
             searchStr: event.target.value,
             messageId: messagelist.filter(element => element.text.includes(state.searchStr)||element.username.includes(state.searchStr))
         })
-        console.log(state.searchStr, state.messageId)
     }
 
     const submitHandler = (event) => {
@@ -35,7 +34,6 @@ export const GetMessageById = () => {
                 searchStr: event.target.value,
                 clear: false
             })
-            console.log(state.messageId)
             dispatch(getMessageById(state.messageId[0].id))
             event.target.value = ''
         }
@@ -66,7 +64,7 @@ export const GetMessageById = () => {
         <>
          <form>
             <label>Search</label>
-        <input type='search' value={state.value} placeholder='Search messages...' list='searchAutofill' onChange={changeHandler} onKeyDown={submitHandler}/>
+        <input type='search' value={state.value} placeholder='Search messages...' list='searchAutofill' onChange={changeHandler} onKeyDown={submitHandler} onClick={changeHandler}/>
         <datalist id='searchAutofill'>
             {messagelist.map(items => <option value={items.text} />)}
             {users.map(items => <option value={items.username} />)}
