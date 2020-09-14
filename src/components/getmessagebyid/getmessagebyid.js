@@ -49,7 +49,7 @@ export const GetMessageById = () => {
 
     return (
         <>
-         <form>
+         <form onLoad={dispatch(getMessageById(0))}>
             <label>Search</label>
         <input type='search' value={state.value} placeholder='Search messages...' list='searchAutofill' onChange={changeHandler} onKeyDown={submitHandler}/>
         <datalist id='searchAutofill'>
