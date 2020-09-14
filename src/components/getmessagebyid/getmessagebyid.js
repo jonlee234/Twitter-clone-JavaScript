@@ -58,19 +58,8 @@ export const GetMessageById = () => {
             </Card.Body>
             </Card>
 
-    const conditionRender = () => {
-        switch (state.clear) {
-            case true:
-            return <Messages />
-            // eslint-disable-next-line no-unreachable
-            break;
-            case false:
-            return <messageIdCard />
-            // eslint-disable-next-line no-unreachable
-            break;
-            default:
-            return <Messages />
-        }
+    const conditionRender = (props = state.clear) => {
+        return state.clear ? <Messages/>:<messageIdCard/>
     }
 
     return (
@@ -84,7 +73,7 @@ export const GetMessageById = () => {
         </datalist>
         </form>
         <button onClick={resetMessageFeed}>Message Feed</button>
-        <conditionRender />
+        {conditionRender}
         </>
     )
 }
