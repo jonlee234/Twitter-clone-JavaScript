@@ -18,7 +18,6 @@ const UserNamePicture =()=>  {
     const [state,setState] = useState(false)
     const [search,setSearch] = useState('')
     const userName = useSelector(state=>state.auth.username)
-    const userList = useSelector(state => state.userList.users[0].users)
     const dispatch = useDispatch()
     // const img = useSelector (state=>state.image)
         // console.log(img)
